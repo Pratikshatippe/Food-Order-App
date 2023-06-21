@@ -1739,8 +1739,9 @@ const RestaurantCards = () =>{
     return(
         <div className="restaurant-cards">
             <div className="search">Search</div>
-            <div className="res-card">
-                <ResCard resData = {restaurantList[0]}/>
+            <div className="res-card">{
+                restaurantList.map(list=>(
+                <ResCard resData = {list}/>))}
                 {/* <ResCard name="Vada Sankruti" location="Delhi, karad" rating="4.1 stars" time="40 mins"/>
                 <ResCard name="Kshatriya Hotel" location="kolhapur, prayagraj" rating="3.8 stars" time="50 mins"/>
                 <ResCard name="Shri Ram Ice-cream" location="Pune, karad" rating="3.9 stars" time="30 mins"/>

@@ -16,3 +16,22 @@
 .food-img{
     height:50%
 }
+.rating{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.bi bi-star-fill{
+font-size: 10rem; 
+}
+#boot-icon{
+    color:white;
+}
+.rating-star-green{
+    background-color:green;
+    padding:2px 5px 2px 5px;
+}
+.rating-star-orange{
+    background-color:rgb(220, 85, 44);
+    padding:2px 5px 2px 5px;
+}

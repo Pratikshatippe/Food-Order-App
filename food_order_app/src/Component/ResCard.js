@@ -1,15 +1,17 @@
 import './ResCard.css';
 
 const ResCard = (props) =>{
+    const {resData} = props;
     return(
         <div className="card">
             <div className="food-img">
-                <img className="food-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"></img>
+                <img className="food-img" 
+                src={"https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/"+resData.data.cloudinaryImageId}></img>
             </div>
-            <h3>{props.name}</h3>
-            <h4>{props.location}</h4>
-            <h4>{props.rating}</h4>
-            <h4>{props.time}</h4>
+            <h3>{resData.data.name}</h3>
+            <h4>{resData.data.cuisines}</h4>
+            <h4>{resData.data.avgRating}</h4>
+            <h4>₹{resData.data.costForTwo} FOR TWO</h4>
         </div>
     )
 }

@@ -1,0 +1,13 @@
+.card{
+    width: 200px;
+    height:300px;
+    padding:5px;
+}
+.card:hover{
+    cursor: pointer;
+    border: 1px solid grey;
+}
+.food-img{
+    width:100%;
+    image:no-repeat;
+}

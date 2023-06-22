@@ -1,0 +1,36 @@
+.card-add-minus{
+    width: 30%;
+    position: absolute;
+    margin-top: 10%;
+    color: white;
+    border-radius: 10px;
+    background-color: green;
+}
+.second-row{
+    padding: 10px;
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 2%;
+}
+.second-desc-part{
+    display: flex;
+    justify-content: center;
+}
+.rating-time-price{
+    width:60%;
+}
+.rating-time-price h3{
+    font-size: 16px;
+}
+.hotel-data{
+    width:60%;
+}
+#boot-icon-green{
+    color: green;
+}
+#boot-icon-orange{
+    color:rgb(196, 101, 38);
+}
+.avg-rating{
+    display: flex;
+}

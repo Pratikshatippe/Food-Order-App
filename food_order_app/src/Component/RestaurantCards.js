@@ -4,6 +4,7 @@ import ResCard from './ResCard';
 import {useEffect, useState} from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import { CARDS_API } from '../Utils/config';
 
 const RestaurantCards = () =>{
     //const [resList, setList] = useState(restaurantList);  from mockdata data is coming
@@ -35,7 +36,7 @@ const RestaurantCards = () =>{
     }
     
     const fetchData = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.7049873&lng=74.24325270000001&sortBy=RELEVANCE&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(CARDS_API);
         const json = await data.json();
         //Optional Chaining
         const fetchedData = json?.data?.cards[2]?.data?.data?.cards;
@@ -54,7 +55,7 @@ const RestaurantCards = () =>{
             <div className="res-card">{
                 searchDataNotPresent ? "Data Not Found" : (searchResList.length === 0 ? <Shimmer/>:
                 searchResList.map(list=>(
-                <Link key={list.data.id} to={"/restaurants/"+list.data.id}><ResCard  resData = {list}/></Link>)))}
+                <Link key={list.data.id} to={"/restaurants/"+list.data.id} className='text-link'><ResCard  resData = {list}/></Link>)))}
             </div>
         </div>
 )

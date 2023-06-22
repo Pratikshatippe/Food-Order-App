@@ -20,9 +20,9 @@ return(
         </div>
         <div className="nav-item">
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/" className='text-link'>Home</Link></li>
+                <li><Link to="/about" className='text-link'>About Us</Link></li>
+                <li><Link to="/contact" className='text-link'>Contact Us</Link></li>
                 <li>Cart</li>
                 <button className='login' onClick={loginHandler}>{loginButton}</button>
             </ul>

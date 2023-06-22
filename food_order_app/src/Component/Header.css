@@ -1,7 +1,10 @@
 .header{
     display:flex;
     justify-content: space-between;
+    background-color: beige;
     border: 1px solid black;
+    position: sticky;
+    top:0;
 }
 .header-logo-img{
     width:95px;

@@ -3,6 +3,7 @@ import ResCard from './ResCard';
 //import restaurantList from '../Utils/mockData';
 import {useEffect, useState} from 'react';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 const RestaurantCards = () =>{
     //const [resList, setList] = useState(restaurantList);  from mockdata data is coming
@@ -12,6 +13,10 @@ const RestaurantCards = () =>{
     const [searchInputValue, setSearchInputValue] = useState("");
     const [searchDataNotPresent,setsearchDataNotPresent] = useState(false);
     
+    useEffect(()=>{
+        fetchData();
+    },[])
+
     const setTopRatedRestaurants = () =>{
         const filteredList = resList.filter(listData=>listData.data.avgRating > 4);
         setSearchResList(filteredList);
@@ -37,9 +42,7 @@ const RestaurantCards = () =>{
         setList(fetchedData);
         setSearchResList(fetchedData);
     }
-    useEffect(()=>{
-        fetchData();
-    },[])
+    
 
     return(
         <div className="restaurant-cards">
@@ -51,7 +54,7 @@ const RestaurantCards = () =>{
             <div className="res-card">{
                 searchDataNotPresent ? "Data Not Found" : (searchResList.length === 0 ? <Shimmer/>:
                 searchResList.map(list=>(
-                <ResCard key={list.data.id} resData = {list}/>)))}
+                <Link key={list.data.id} to={"/restaurants/"+list.data.id}><ResCard  resData = {list}/></Link>)))}
             </div>
         </div>
 )

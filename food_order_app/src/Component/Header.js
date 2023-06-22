@@ -1,13 +1,18 @@
 import './Header.css';
 import { LOGO_URL } from '../Utils/config';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () =>{
     const [loginButton, setLoginButton] = useState("Login");
+    console.log("header");
 
     const loginHandler = () =>{
         loginButton==="Login"?setLoginButton("Logout"):setLoginButton("Login");
     }
+    useEffect(()=>{
+        console.log("inside useEffect hook");
+    },[loginButton])
 return(
     <div className="header">
         <div className="logo">
@@ -15,9 +20,9 @@ return(
         </div>
         <div className="nav-item">
             <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
                 <li>Cart</li>
                 <button className='login' onClick={loginHandler}>{loginButton}</button>
             </ul>

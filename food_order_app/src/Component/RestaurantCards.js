@@ -13,11 +13,11 @@ const RestaurantCards = () =>{
         setList(filteredList);
     }
     const fetchData = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.7049873&lng=74.24325270000001&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.7049873&lng=74.24325270000001&sortBy=RELEVANCE&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         console.log(json);
         //Optional Chaining
-        setList(json?.data?.cards[0]?.data?.data?.cards);
+        setList(json?.data?.cards[2]?.data?.data?.cards);
     }
     useEffect(()=>{
         fetchData();

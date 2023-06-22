@@ -1,10 +1,10 @@
-Application Name
+#Application Name
 Food-Order-App
 
-Author
+##Author
 Pratiksha Tippe
 
-Technology
+##Technology
 HTML5
 CSS3
 JavaScript

@@ -1,9 +1,18 @@
 import './SingleResCard.css';
+import { ITEMS_API } from '../Utils/config';
+import { useState } from 'react';
 const SingleResItem = (props) =>{
+    const [incrementCounter,setIncrementCounter] = useState(0);
     const {itemData} = props;
     console.log(itemData);
-    //const {name,price,category} = itemData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards;
-
+    const incrementHandler = () =>{
+        console.log("inside plus");
+        setIncrementCounter(incrementCounter + 1);
+    }
+    const decrementHandler = () =>{
+        console.log("inside minus");
+        setIncrementCounter(incrementCounter - 1);
+    }
     return(
             <div className="row second-row">
                 <div className="col-sm-8 first-desc-part">
@@ -15,16 +24,16 @@ const SingleResItem = (props) =>{
                         {itemData.card.info.price/100 || itemData.card.info.defaultPrice/100}
                     </div>
                     <div className="row description">
-                        {itemData.card.info.category}
+                        {itemData.card.info.description}
                     </div>
                 </div>
                 <div className="col-sm-4 justify-content-sm-center second-desc-part">
 
-                    <img></img>
+                    <img src={ITEMS_API+itemData.card.info.imageId} className='item-img'></img>
                     <div className="row card-add-minus">
-                        <div className="col-xs-4">-</div>
-                        <div className="col-xs-4">0</div>
-                        <div className="col-xs-4">+</div>
+                        <button className="col-xs-4 minus" onclick={decrementHandler}>-</button>
+                        <div className="col-xs-4">{incrementCounter}</div>
+                        <button className="col-xs-4 plus" onclick={incrementHandler}>+</button>
                     </div>
                 </div>
             </div>

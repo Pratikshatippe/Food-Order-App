@@ -1,10 +1,18 @@
 .card-add-minus{
-    width: 30%;
+    width: 25%;
     position: absolute;
-    margin-top: 10%;
+    margin-top: 16%;
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
+    height: 30%;
     background-color: green;
+}
+.plus,.minus{
+    cursor: pointer;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color:white;
 }
 .second-row{
     padding: 10px;
@@ -20,10 +28,11 @@
     width:60%;
 }
 .rating-time-price h3{
-    font-size: 16px;
+    font-size: 12px;
 }
 .hotel-data{
     width:60%;
+    padding-left: 2.5%;
 }
 #boot-icon-green{
     color: green;
@@ -31,6 +40,7 @@
 #boot-icon-orange{
     color:rgb(196, 101, 38);
 }
-.avg-rating{
-    display: flex;
+.item-img{
+    width: 30%;
+    border-radius: 10px;
 }

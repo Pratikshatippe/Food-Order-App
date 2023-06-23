@@ -20,13 +20,13 @@ const SingleResInfo = (props) =>{
                         {locality}
                     </div>
                 <div className="row rating-time-price justify-content-md-center">
-                    <div className="col-sm-2 avg-rating">
+                    <div className="col-sm-3 avg-rating">
                         {avgRating >= 4 ?<h3>
                         <span id="boot-icon-green" className="bi bi-star-fill"></span>
                         <span>{avgRatingString}</span></h3>: <h3><span id="boot-icon-orange" className="bi bi-star-fill"></span>
                         <span>{avgRatingString}</span></h3>}
                     </div>
-                    <h3 className="col-sm-4">{sla.slaString}</h3>
+                    <h3 className="col-sm-3">{sla.slaString}</h3>
                     <h3 className="col-sm-6">{costForTwoMessage}</h3>
                 </div>
             </div>

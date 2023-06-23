@@ -9,7 +9,7 @@ import Header from './Component/Header';
 import RestaurantMenu from './pages/RestaurantMenu';
 function App() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Header/>
       <Routes>
         <Route path="/" element={<RestaurantCards/>} errorElement={<Error/>}/>

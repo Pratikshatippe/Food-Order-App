@@ -21,18 +21,17 @@ const RestaurantMenu = () =>{
     if(resInfo === null) return <Shimmer/>;
     console.log(resInfo);
     //const {name,cuisines,costForTwoMessage,locality,cloudinaryImageId} = resInfo?.cards[0]?.card?.card?.info;
-    const menuItems = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards;
+    const menuItems = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card.itemCards;
     // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card);
     console.log(menuItems)
     return (
         <div className="container">
             <div className="col main-restaurant-deatils">
-                {/* <h1>{name}</h1>
-                <h4>{`${cuisines} ${costForTwoMessage}`}</h4>
-                <h4>{locality}</h4> */}
+                <hr></hr>
                 <div className="row justify-content-sm-center main-hotel-info">
                     <SingleResInfo singleData={resInfo}/>
                 </div>
+                <hr></hr>
                 <ul className="row cart-items">
                     {/* {menuItems.map(item=>
                         <li key={item.card.info.id}>{item.card.info.name} {"- Rs."} 

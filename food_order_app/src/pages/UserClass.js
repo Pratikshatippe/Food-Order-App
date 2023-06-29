@@ -14,7 +14,7 @@ class UserClass extends React.Component{
 
     componentDidMount=async()=>{
         this.timer = setInterval(() => {
-            console.log("react app up");
+            console.log("react class based app up");
         }, 1000);
         const data = await fetch("https://api.github.com/users/Pratikshatippe");
         const json = await data.json();

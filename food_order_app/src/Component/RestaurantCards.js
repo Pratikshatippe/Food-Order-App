@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { CARDS_API } from '../Utils/config';
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const RestaurantCards = () =>{
     //const [resList, setList] = useState(restaurantList);  from mockdata data is coming
@@ -44,6 +45,10 @@ const RestaurantCards = () =>{
         setSearchResList(fetchedData);
     }
     
+    const olStatus = useOnlineStatus();
+    if(olStatus === false){
+        return <h1>Your are offline!! Please check your internet connection!</h1>
+    }
 
     return(
         <div className="restaurant-cards">

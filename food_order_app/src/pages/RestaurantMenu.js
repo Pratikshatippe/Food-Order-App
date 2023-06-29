@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
 import Shimmer from "../Component/Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../Utils/config";
 import SingleResInfo from "../Component/SingleResInfo";
 import SingleResItem from "../Component/SingleResItem";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantMenu = () =>{
     const {resId} = useParams();
-    const [resInfo, setResInfo]=useState(null);
-    useEffect(()=>{
-        fetchMenu();
-    },[]);
+    //const [resInfo, setResInfo]=useState(null);
+    const resInfo = useRestaurantMenu(resId);
+    console.log("after customer hook");
+    console.log(resInfo);
+    // useEffect(()=>{
+    //     fetchMenu();
+    // },[]);
 
-    const fetchMenu = async()=>{
-        const menuData = await fetch(MENU_API+resId);
-        const json = await menuData.json();
-        setResInfo(json.data);
-    }
-
+    // const fetchMenu = async()=>{
+    //     const menuData = await fetch(MENU_API+resId);
+    //     const json = await menuData.json();
+    //     setResInfo(json.data);
+    // }
+    
     if(resInfo === null) return <Shimmer/>;
     console.log(resInfo);
     //const {name,cuisines,costForTwoMessage,locality,cloudinaryImageId} = resInfo?.cards[0]?.card?.card?.info;

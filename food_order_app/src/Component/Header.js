@@ -23,6 +23,7 @@ return(
                 <li><Link to="/" className='text-link'>Home</Link></li>
                 <li><Link to="/about" className='text-link'>About Us</Link></li>
                 <li><Link to="/contact" className='text-link'>Contact Us</Link></li>
+                <li><Link to="/grocery" className='text-link'>Grocery</Link></li>
                 <li>Cart</li>
                 <button className='login' onClick={loginHandler}>{loginButton}</button>
             </ul>

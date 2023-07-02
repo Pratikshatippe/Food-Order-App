@@ -10,7 +10,7 @@ import RestaurantMenu from './pages/RestaurantMenu';
 import { Suspense, lazy } from 'react';
 //import Grocery from './pages/Grocery';
 
-//lazy loading/code splitting/on loading
+//lazy loading/code splitting/on demand loading/dynamic import/chunking
 
 const Grocery = lazy(()=>import("./pages/Grocery"));
 

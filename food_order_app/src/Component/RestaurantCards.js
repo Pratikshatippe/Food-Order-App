@@ -1,4 +1,4 @@
-import './RestaurantCards.css';
+//import './RestaurantCards.css';
 import ResCard from './ResCard';
 //import restaurantList from '../Utils/mockData';
 import {useEffect, useState} from 'react';
@@ -52,12 +52,12 @@ const RestaurantCards = () =>{
 
     return(
         <div className="restaurant-cards">
-            <div className="filter">
-                <button className="filter-btn" onClick={setTopRatedRestaurants}>Top Rated Restaurants</button>
-                <input type="text" className='search-input' value={searchInputValue} placeholder='Enter name of dish which you want to eat now'onChange={(e)=>setSearchInputValue(e.target.value)}/>
-                <button className='search-btn' onClick={filterSearchHandler}>Search</button>
+            <div className="filter w-full my-6 mx-56">
+                <button className="filter-btn px-4 py-2  rounded-lg bg-gray-100" onClick={setTopRatedRestaurants}>Top Rated Restaurants</button>
+                <input type="text" className='search-input w-1/3 rounded-2xl mx-6 my-2 p-1 border border-solid border-gray-600' value={searchInputValue} placeholder='    Enter name of dish which you want to eat now'onChange={(e)=>setSearchInputValue(e.target.value)}/>
+                <button className='search-btn px-4 py-2 mx-2 bg-green-200 rounded-lg' onClick={filterSearchHandler}>Search</button>
             </div>
-            <div className="res-card">{
+            <div className="res-card flex flex-wrap">{
                 searchDataNotPresent ? "Data Not Found" : (searchResList.length === 0 ? <Shimmer/>:
                 searchResList.map(list=>(
                 <Link key={list.data.id} to={"/restaurants/"+list.data.id} className='text-link'><ResCard  resData = {list}/></Link>)))}

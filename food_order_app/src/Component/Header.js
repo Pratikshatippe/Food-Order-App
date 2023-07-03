@@ -14,8 +14,7 @@ const Header = () =>{
         console.log("inside useEffect hook");
     },[loginButton])
 return(
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 text-white">
-    <div className="header flex justify-between">
+    <div className="header  bg-white dark:bg-gray-900 flex justify-between border-b border-gray-200 dark:border-gray-600 text-white">
         <div className="logo w-36 p-3">
             <img alt="header-logo-img" className="header-logo-img" src={LOGO_URL}></img>
         </div>
@@ -30,7 +29,6 @@ return(
             </ul>
         </div>
     </div>
-    </nav>
 )
 }
 

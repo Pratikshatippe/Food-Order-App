@@ -16,7 +16,7 @@ const Grocery = lazy(()=>import("./pages/Grocery"));
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div>
       <Header/>
       <Routes>
         <Route path="/" element={<RestaurantCards/>} errorElement={<Error/>}/>

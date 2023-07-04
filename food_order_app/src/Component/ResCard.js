@@ -5,7 +5,7 @@ const ResCard = (props) =>{
     const {resData} = props;
     const {cloudinaryImageId,name,cuisines,avgRating,slaString,costForTwo} = resData?.data;
     return(
-        <div className="card w-96 hover:border hover:border-solid hover:border-gray-700 m-2 shadow-lg">
+        <div className="card w-96 hover:border hover:bg-slate-300 m-2 shadow-lg">
             <div className="food-img px-4">
                 <img className="food-image w-full h-80 p-3 shadow-sm" 
                 src={FOOD_IMG_URL+cloudinaryImageId}></img>

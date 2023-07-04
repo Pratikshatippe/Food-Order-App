@@ -7,7 +7,8 @@ import Contactus from './pages/Contactus';
 import Error from './pages/Error';
 import Header from './Component/Header';
 import RestaurantMenu from './pages/RestaurantMenu';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react';
+import UserContext from './Store/UserContext';
 //import Grocery from './pages/Grocery';
 
 //lazy loading/code splitting/on demand loading/dynamic import/chunking
@@ -15,8 +16,15 @@ import { Suspense, lazy } from 'react';
 const Grocery = lazy(()=>import("./pages/Grocery"));
 
 function App() {
+  const [user, setUser] = useState({
+    user:{
+      name:"Pratiksha Tippe",
+      email:"pratikshatippe@gmail.com"
+    }
+  })
   return (
     <div>
+      <UserContext.Provider value={user}>
       <Header/>
       <Routes>
         <Route path="/" element={<RestaurantCards/>} errorElement={<Error/>}/>
@@ -25,6 +33,7 @@ function App() {
         <Route path="/grocery" element={<Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>}/>
         <Route path="/restaurants/:resId" element={<RestaurantMenu/>}/>
       </Routes>
+      </UserContext.Provider>
     </div>
   );
 }

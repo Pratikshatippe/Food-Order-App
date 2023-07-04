@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../Store/UserContext";
 
 class UserClass extends React.Component{
     constructor(props){
@@ -41,6 +42,9 @@ class UserClass extends React.Component{
                 }>Increment</button>
                 <h2>{name}</h2>
                 <h3>{location}</h3>
+                <UserContext.Consumer>
+                    {({user})=><h4>{user.name}</h4>}
+                </UserContext.Consumer>
             </div>
         )
     }

@@ -60,7 +60,11 @@ const RestaurantCards = () =>{
                 <button className="filter-btn px-4 py-2  rounded-lg bg-gray-100" onClick={setTopRatedRestaurants}>Top Rated Restaurants</button>
                 <input type="text" className='search-input w-1/3 rounded-2xl mx-6 my-2 p-1 border border-solid border-gray-600' value={searchInputValue} placeholder='    Enter name of dish which you want to eat now' onChange={(e)=>setSearchInputValue(e.target.value)}/>
                 <button className='search-btn px-4 py-2 mx-2 bg-green-200 rounded-lg' onClick={filterSearchHandler}>Search</button>
-                <input className='border border-solid border-black' value={user.name} onChange={(e)=>{setUser({name:e.target.value,email:"pt@gmail.com"})}}></input>
+                <input className='border border-solid border-black' value={user.name} 
+                onChange={(e)=>{setUser({...user,name:e.target.value})}}></input>
+                <input className='border border-solid border-black' value={user.email} 
+                onChange={(e)=>{setUser({...user,email:e.target.value})}}></input>
+                <h4>{user.name}-{user.email}</h4>
             </div>
             <div className="res-card flex flex-wrap">{
                 searchDataNotPresent ? "Data Not Found" : (searchResList.length === 0 ? <Shimmer/>:

@@ -1,11 +1,12 @@
 //import './RestaurantCards.css';
 import ResCard from './ResCard';
 //import restaurantList from '../Utils/mockData';
-import {useEffect, useState} from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { CARDS_API } from '../Utils/config';
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from '../Store/UserContext';
 
 const RestaurantCards = () =>{
     //const [resList, setList] = useState(restaurantList);  from mockdata data is coming
@@ -14,6 +15,9 @@ const RestaurantCards = () =>{
     const [searchResList, setSearchResList] = useState([]);
     const [searchInputValue, setSearchInputValue] = useState("");
     const [searchDataNotPresent,setsearchDataNotPresent] = useState(false);
+
+    const {user, setUser}= useContext(UserContext);
+    console.log(user);
     
     useEffect(()=>{
         fetchData();
@@ -54,8 +58,9 @@ const RestaurantCards = () =>{
         <div className="restaurant-cards">
             <div className="filter w-full my-6 mx-56">
                 <button className="filter-btn px-4 py-2  rounded-lg bg-gray-100" onClick={setTopRatedRestaurants}>Top Rated Restaurants</button>
-                <input type="text" className='search-input w-1/3 rounded-2xl mx-6 my-2 p-1 border border-solid border-gray-600' value={searchInputValue} placeholder='    Enter name of dish which you want to eat now'onChange={(e)=>setSearchInputValue(e.target.value)}/>
+                <input type="text" className='search-input w-1/3 rounded-2xl mx-6 my-2 p-1 border border-solid border-gray-600' value={searchInputValue} placeholder='    Enter name of dish which you want to eat now' onChange={(e)=>setSearchInputValue(e.target.value)}/>
                 <button className='search-btn px-4 py-2 mx-2 bg-green-200 rounded-lg' onClick={filterSearchHandler}>Search</button>
+                <input className='border border-solid border-black' value={user.name} onChange={(e)=>{setUser({name:e.target.value,email:"pt@gmail.com"})}}></input>
             </div>
             <div className="res-card flex flex-wrap">{
                 searchDataNotPresent ? "Data Not Found" : (searchResList.length === 0 ? <Shimmer/>:

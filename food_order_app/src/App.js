@@ -17,14 +17,11 @@ const Grocery = lazy(()=>import("./pages/Grocery"));
 
 function App() {
   const [user, setUser] = useState({
-    user:{
       name:"Pratiksha Tippe",
       email:"pratikshatippe@gmail.com"
-    }
   })
   return (
-    <div>
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={{user:user,setUser:setUser}}>
       <Header/>
       <Routes>
         <Route path="/" element={<RestaurantCards/>} errorElement={<Error/>}/>
@@ -34,7 +31,6 @@ function App() {
         <Route path="/restaurants/:resId" element={<RestaurantMenu/>}/>
       </Routes>
       </UserContext.Provider>
-    </div>
   );
 }
 

@@ -30,17 +30,17 @@ const RestaurantMenu = () =>{
         <div className="container">
             <div className="col main-restaurant-deatils">
                 <hr></hr>
-                <div className="row justify-content-sm-center main-hotel-info">
+                <div className="row justify-content-sm-center main-hotel-info shadow-xl h-80">
                     <SingleResInfo singleData={resInfo}/>
                 </div>
                 <hr></hr>
-                <ul className="row cart-items">
+                <ul className="cart-items p-4 w-full">
                     {/* {menuItems.map(item=>
                         <li key={item.card.info.id}>{item.card.info.name} {"- Rs."} 
                         {item.card.info.price/100 || item.card.info.defaultPrice/100}</li>
                     )} */}
                     {menuItems.map(item=>
-                        <SingleResItem key={item.card.info.id} itemData={item}/>
+                        <li className="h-60 p-4 flex mx-40"><SingleResItem key={item.card.info.id} itemData={item}/><hr></hr></li>
                         )}
                 </ul>
             </div>

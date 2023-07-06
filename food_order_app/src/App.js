@@ -9,6 +9,8 @@ import Header from './Component/Header';
 import RestaurantMenu from './pages/RestaurantMenu';
 import { Suspense, lazy, useState } from 'react';
 import UserContext from './Store/UserContext';
+import { Provider } from 'react-redux';
+import store from './Store/store';
 //import Grocery from './pages/Grocery';
 
 //lazy loading/code splitting/on demand loading/dynamic import/chunking
@@ -21,6 +23,7 @@ function App() {
       email:"pratikshatippe@gmail.com"
   })
   return (
+    <Provider store={store}>
       <UserContext.Provider value={{user:user,setUser:setUser}}>
       <Header/>
       <Routes>
@@ -31,6 +34,7 @@ function App() {
         <Route path="/restaurants/:resId" element={<RestaurantMenu/>}/>
       </Routes>
       </UserContext.Provider>
+    </Provider>
   );
 }
 

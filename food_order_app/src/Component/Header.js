@@ -14,6 +14,7 @@ const Header = () =>{
     console.log("header "+user);
 
     const cart = useSelector(store=>store.cart.items);
+    console.log(cart);
 
 console.log(user);
 
@@ -35,7 +36,7 @@ return(
                 <li className='p-2 text-3xl'><Link to="/contact" className='text-link'>Contact Us</Link></li>
                 <li className='p-2 text-3xl'><Link to="/grocery" className='text-link'>Grocery</Link></li>
                 <li className='p-2 text-3xl'>{user.name}</li>
-                <li className='p-2 text-3xl'>Cart- {cart.length} items</li>
+                <li className='p-2 text-3xl'><Link to="/cart" className='text-link'>Cart-{cart.length}</Link></li>
                 <button className='login p-2 text-2xl bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow' onClick={loginHandler}>{loginButton}</button>
             </ul>
         </div>

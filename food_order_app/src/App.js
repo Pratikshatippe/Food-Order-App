@@ -11,6 +11,7 @@ import { Suspense, lazy, useState } from 'react';
 import UserContext from './Store/UserContext';
 import { Provider } from 'react-redux';
 import store from './Store/store';
+import Cart from './pages/Cart';
 //import Grocery from './pages/Grocery';
 
 //lazy loading/code splitting/on demand loading/dynamic import/chunking
@@ -32,6 +33,7 @@ function App() {
         <Route path="/contact" element={<Contactus/>}/>
         <Route path="/grocery" element={<Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>}/>
         <Route path="/restaurants/:resId" element={<RestaurantMenu/>}/>
+        <Route path="/cart" element={<Cart/>}/>
       </Routes>
       </UserContext.Provider>
     </Provider>
